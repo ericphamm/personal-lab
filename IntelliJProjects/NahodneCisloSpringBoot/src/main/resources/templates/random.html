@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator Cisel</title>
+</head>
+<body>
+<h1>Generator Cisel</h1>
+
+<form action="/random" method="post">
+<label>
+  Cislo od:
+  <input type="number" id="number1" th:field="${randomNumberDTO.number1}">
+</label>
+<br />
+
+<label>
+  Cislo do:
+  <input type="number" id="number2" th:field="${randomNumberDTO.number2}">
+</label>
+<br />
+  <input type="submit" value="Vygenerovat">
+</form>
+
+<br />
+<p>Nahodne cislo:</p>
+<br>
+<p th:text="${randomResult}"></p>
+
+</body>
+</html>
