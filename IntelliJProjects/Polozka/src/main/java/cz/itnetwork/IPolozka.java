@@ -1,4 +1,5 @@
 package cz.itnetwork;
 
-public class IPolozka {
+public interface IPolozka {
+    public String ziskejNazev();
 }
