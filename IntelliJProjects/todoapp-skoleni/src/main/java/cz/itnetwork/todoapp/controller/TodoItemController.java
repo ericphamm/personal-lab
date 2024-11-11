@@ -4,8 +4,8 @@ import cz.itnetwork.todoapp.dto.TodoItemDTO;
 import cz.itnetwork.todoapp.service.TodoItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +20,36 @@ public class TodoItemController {
     public @ResponseBody List<TodoItemDTO> getAll() {
         return todoItemService.getAll();
     }
+
+    //RequestBody - ocekavame nejaky data
+    @PostMapping("/todo")
+    public @ResponseBody TodoItemDTO create(@RequestBody TodoItemDTO todoItemDTO) {
+        return todoItemService.create(todoItemDTO);
+    }
+
+    @GetMapping("/todo/create")
+    public String renderForm (Model model, @ModelAttribute TodoItemDTO todoItemDTO) {
+        model.addAttribute("title", "Ukolovnik");
+        return "todoapp";
+    }
+
+    @PostMapping("/todo/create")
+    public @ResponseBody TodoItemDTO createByForm(@ModelAttribute TodoItemDTO todoItemDTO) {
+        return todoItemService.create(todoItemDTO);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
