@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-11T11:05:27+0100",
+    date = "2024-11-11T14:56:50+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Component
@@ -21,6 +21,7 @@ public class TodoItemMapperImpl implements TodoItemMapper {
 
         TodoItemDTO todoItemDTO = new TodoItemDTO();
 
+        todoItemDTO.setCategoryId( source.getCategoryId() );
         todoItemDTO.setId( source.getId() );
         todoItemDTO.setName( source.getName() );
 

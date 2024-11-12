@@ -13,6 +13,23 @@ public class TodoItemEntity {
 
     private String name;
 
+
+    @ManyToOne
+    private CategoryEntity categoryEntity;
+
+    //vlastni getter pro ziskani id z entity kategrorie
+    public Long getCategoryId() {
+        if (this.categoryEntity == null)
+            return null;
+        return this.categoryEntity.getId();
+    }
+
+    public void setCategoryEntity(CategoryEntity categoryEntity) {
+        this.categoryEntity = categoryEntity;
+    }
+
+
+
     public Long getId() {
         return id;
     }

@@ -6,8 +6,18 @@ public class TodoItemDTO {
 
     private String name;
 
+    private Long categoryId;
+
     //gettery and settery
 
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public Long getId() {
         return id;

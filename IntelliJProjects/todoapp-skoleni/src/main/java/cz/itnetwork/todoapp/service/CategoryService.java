@@ -27,7 +27,7 @@ public class CategoryService {
     }
     //metoda na vytvareni zaznamu
     public CategoryDTO create(CategoryDTO categoryDTO) {
-        CategoryEntity categoryEntity = categoryMapper.toEntity(CategoryDTO);
+        CategoryEntity categoryEntity = categoryMapper.toEntity(categoryDTO);
         categoryEntity = categoryRepository.save(categoryEntity);
         return categoryMapper.toDTO(categoryEntity);
     }

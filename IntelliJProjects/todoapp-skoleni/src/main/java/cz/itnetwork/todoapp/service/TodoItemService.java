@@ -1,7 +1,9 @@
 package cz.itnetwork.todoapp.service;
 
 import cz.itnetwork.todoapp.dto.TodoItemDTO;
+import cz.itnetwork.todoapp.entity.CategoryEntity;
 import cz.itnetwork.todoapp.entity.TodoItemEntity;
+import cz.itnetwork.todoapp.entity.repository.CategoryRepository;
 import cz.itnetwork.todoapp.entity.repository.TodoItemRepository;
 import cz.itnetwork.todoapp.mapper.TodoItemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class TodoItemService {
 
     @Autowired
     private TodoItemMapper todoItemMapper;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     //ziskani vsech polozek v databazi
     //vracet DTO klientovi, repo umoznuje pracovat s databazemmi
@@ -32,6 +36,9 @@ public class TodoItemService {
     public TodoItemDTO create(TodoItemDTO todoItemDTO) {
         //pomoci mapperu premapuje DTO na entitu
         TodoItemEntity todoItemEntity = todoItemMapper.toEntity(todoItemDTO);
+        //vytahnout categorii ID
+        CategoryEntity categoryEntity = categoryRepository.getReferenceById(todoItemDTO.getCategoryId());
+        todoItemEntity.setCategoryEntity(categoryEntity);
         //todoenttiy ulozime do databaze
         todoItemEntity = todoItemRepository.save(todoItemEntity);
         //vracime zase do DTO

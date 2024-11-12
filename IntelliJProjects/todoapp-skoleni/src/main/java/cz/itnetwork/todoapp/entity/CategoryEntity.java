@@ -2,6 +2,8 @@ package cz.itnetwork.todoapp.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class CategoryEntity {
 
@@ -11,7 +13,19 @@ public class CategoryEntity {
     @Column(nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "categoryEntity")
+    private List <TodoItemEntity> items;
+
     //gettery and settery
+
+
+    public List<TodoItemEntity> getItems() {
+        return items;
+    }
+
+    public void setItems(List<TodoItemEntity> items) {
+        this.items = items;
+    }
 
     public Long getId() {
         return id;
