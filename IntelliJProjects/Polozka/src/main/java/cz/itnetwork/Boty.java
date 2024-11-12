@@ -13,7 +13,7 @@ public class Boty implements IPolozka{
         return Nazev;
     }
 
-    public int ziskejVelkost() {
+    public int ziskejVelikost() {
         return Velikost;
     }
 }
