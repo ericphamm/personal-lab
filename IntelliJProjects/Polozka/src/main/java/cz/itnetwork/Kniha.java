@@ -7,7 +7,6 @@ public class Kniha implements IPolozka{
         this.Nazev = Nazev;
     }
 
-    @Override
     public String ziskejNazev() {
         return Nazev;
     }
