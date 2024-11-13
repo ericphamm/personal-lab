@@ -97,12 +97,20 @@ public class Denik {
             if (volba.equals("hledat")) {
                 System.out.println("Napis zaznam");
                 String hledanyText = scanner.nextLine();
+
+                boolean found = false;
+
                 for (int i = 0; i < zaznamy.size(); i++) {
                     Zaznam z = zaznamy.get(i);
                     if (z.getText().toLowerCase().contains(hledanyText.toLowerCase())) {
                         System.out.println("Zaznam ulozeno na indexu" + i);
                         System.out.println(z);
+                        found = true;
                     }
+                }
+
+                if (!found) {
+                    System.out.println("Zadny zaznam neobsahuje zadany text");
                 }
             }
 
