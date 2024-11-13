@@ -99,7 +99,7 @@ public class Denik {
                 String hledanyText = scanner.nextLine();
                 for (int i = 0; i < zaznamy.size(); i++) {
                     Zaznam z = zaznamy.get(i);
-                    if (z.getText().contains(hledanyText)) {
+                    if (z.getText().toLowerCase().contains(hledanyText.toLowerCase())) {
                         System.out.println("Zaznam ulozeno na indexu" + i);
                         System.out.println(z);
                     }
