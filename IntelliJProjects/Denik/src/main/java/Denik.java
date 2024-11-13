@@ -4,11 +4,7 @@ import java.util.LinkedList;
 
 public class Denik {
 
-    private LinkedList<Zaznam> zaznamy;
-
-    public Denik() {
-        zaznamy = new LinkedList<>();
-    }
+    private LinkedList<Zaznam> zaznamy = new LinkedList<>() ;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -98,6 +94,19 @@ public class Denik {
             }
 
 
+            if (volba.equals("hledat")) {
+                System.out.println("Napis zaznam");
+                String hledanyText = scanner.nextLine();
+                for (int i = 0; i < zaznamy.size(); i++) {
+                    Zaznam z = zaznamy.get(i);
+                    if (z.getText().contains(hledanyText)) {
+                        System.out.println("Zaznam ulozeno na indexu" + i);
+                        System.out.println(z);
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -107,6 +116,7 @@ public class Denik {
         System.out.println("- novy: Vytvoření nového záznamu");
         System.out.println("- zaznamy: Zobrazí všechny záznamy");
         System.out.println("- smaz: Odstranění záznamu");
+        System.out.println("- hledat: Hledat zaznamu");
         System.out.println("- zavri: Zavření deníku a ukončení programu");
         System.out.println("----------------   MENU   ----------------");
 
