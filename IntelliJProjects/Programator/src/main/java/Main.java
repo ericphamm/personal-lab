@@ -6,8 +6,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         List<Programator> programatori = new ArrayList<>();
-        for (int i = 1; i <= 3; i++) {
-            System.out.println("Zadejte " + i + ". programátora");
+
+        //ziskani informace o programatorech
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Zadejte " + (i + 1) + ". programátora");
             String jmeno = scanner.nextLine();
 
             System.out.println("Programovací jazyky (oddělujte čárkou a mezerou):");
@@ -19,6 +21,7 @@ public class Main {
             programatori.add(programator);
         }
 
+        //sjednoceni vsech jazyku
         HashSet<String> sjednoceni = new HashSet<>();
         for (Programator i : programatori) {
             sjednoceni.addAll(i.getProgramovaciJazyky());
@@ -37,5 +40,12 @@ public class Main {
 
 
 
+    }
+
+    //vypis
+    static void VypisMnozinuJazyku(HashSet<String> mnozina) {
+        for (String jazyk : mnozina) {
+            System.out.println(jazyk + ", ");
+        }
     }
 }
