@@ -7,35 +7,41 @@ public class Main {
 
         List<Programator> programatori = new ArrayList<>();
 
-        //ziskani informace o programatorech
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Zadejte " + (i + 1) + ". programátora");
-            String jmeno = scanner.nextLine();
+//        //ziskani informace o programatorech
+//        for (int i = 0; i < 3; i++) {
+//            System.out.println("Zadejte " + (i + 1) + ". programátora");
+//            String jmeno = scanner.nextLine();
+//
+//            System.out.println("Programovací jazyky (oddělujte čárkou a mezerou):");
+//            String jazykVstup = scanner.nextLine();
+//            String[] jazyky = jazykVstup.split(",\\s*");
+//
+//
+//            Programator programator = new Programator(jmeno, jazyky);
+//            programatori.add(programator);
+//        }
 
-            System.out.println("Programovací jazyky (oddělujte čárkou a mezerou):");
-            String jazykVstup = scanner.nextLine();
-            String[] jazyky = jazykVstup.split(",\\s*");
-
-
-            Programator programator = new Programator(jmeno, jazyky);
-            programatori.add(programator);
-        }
+        programatori.add(new Programator("Karel", new String[] {"C#", "Swift", "Kotlin"}));
+        programatori.add(new Programator("Lucie", new String[] {"JavaScript", "PHP", "C#"}));
+        programatori.add(new Programator("Milan", new String[] {"C", "C++", "C#"}));
 
         //sjednoceni vsech jazyku
         HashSet<String> sjednoceni = new HashSet<>();
         for (Programator i : programatori) {
             sjednoceni.addAll(i.getProgramovaciJazyky());
         }
-        System.out.println(sjednoceni);
+        System.out.print("Všechny jazyky: ");
+        VypisMnozinuJazyku(sjednoceni);
+        System.out.println();
 
+        //prunik, vzit jakyhokoliv programatora a porovnat ho s ostatnima
         HashSet<String> prunik = new HashSet<>(programatori.get(1).getProgramovaciJazyky());
         for (int i = 1; i < programatori.size(); i++) {
             prunik.retainAll(programatori.get(i).getProgramovaciJazyky());
         }
-        System.out.println("Společné jazyky: " + prunik);
-        for (String i : prunik) {
-            System.out.println(i);
-        }
+        System.out.print("Společné jazyky: ");
+        VypisMnozinuJazyku(prunik);
+        System.out.println();
 
 
 
@@ -45,7 +51,7 @@ public class Main {
     //vypis
     static void VypisMnozinuJazyku(HashSet<String> mnozina) {
         for (String jazyk : mnozina) {
-            System.out.println(jazyk + ", ");
+            System.out.print(jazyk + ", ");
         }
     }
 }
