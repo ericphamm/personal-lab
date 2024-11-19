@@ -7,23 +7,24 @@ public class Main {
 
         List<Programator> programatori = new ArrayList<>();
 
-//        //ziskani informace o programatorech
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println("Zadejte " + (i + 1) + ". programátora");
-//            String jmeno = scanner.nextLine();
-//
-//            System.out.println("Programovací jazyky (oddělujte čárkou a mezerou):");
-//            String jazykVstup = scanner.nextLine();
-//            String[] jazyky = jazykVstup.split(",\\s*");
-//
-//
-//            Programator programator = new Programator(jmeno, jazyky);
-//            programatori.add(programator);
-//        }
+        //ziskani informace o programatorech
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Zadejte " + (i + 1) + ". programátora");
+            String jmeno = scanner.nextLine();
 
-        programatori.add(new Programator("Karel", new String[] {"C#", "Swift", "Kotlin"}));
-        programatori.add(new Programator("Lucie", new String[] {"JavaScript", "PHP", "C#"}));
-        programatori.add(new Programator("Milan", new String[] {"C", "C++", "C#"}));
+            System.out.println("Programovací jazyky (oddělujte čárkou a mezerou):");
+            String jazykVstup = scanner.nextLine();
+            String[] jazyky = jazykVstup.split(",\\s*");
+
+
+            Programator programator = new Programator(jmeno, jazyky);
+            programatori.add(programator);
+        }
+
+//        //na testovani
+//        programatori.add(new Programator("Karel", new String[] {"C#", "Swift", "Kotlin"}));
+//        programatori.add(new Programator("Lucie", new String[] {"JavaScript", "PHP", "C#"}));
+//        programatori.add(new Programator("Milan", new String[] {"C", "C++", "C#"}));
 
         //sjednoceni vsech jazyku
         HashSet<String> sjednoceni = new HashSet<>();
@@ -43,9 +44,25 @@ public class Main {
         VypisMnozinuJazyku(prunik);
         System.out.println();
 
+        //rozdil
+        for (Programator programator : programatori) {
+            //udelat koppii toho soucasneho programatora
+            HashSet<String> unikatniJazyky = new HashSet<>(programator.getProgramovaciJazyky());
 
+            HashSet<String> ostatniUnion = new HashSet<>();
+            for (Programator jinyProgramator : programatori) {
+                if (!jinyProgramator.equals(programator)) {
+                    ostatniUnion.addAll(jinyProgramator.getProgramovaciJazyky());
+                }
+            }
 
+            //Odecist ostatniUnion od soucasneho programatora
+            unikatniJazyky.removeAll(ostatniUnion);
 
+            System.out.print("Jazyky, které umí jen " + programator.getJmeno() + ": ");
+            VypisMnozinuJazyku(unikatniJazyky);
+            System.out.println();
+        }
     }
 
     //vypis
