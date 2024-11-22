@@ -22,4 +22,8 @@ public class Planeta {
     public boolean jeKamenna() { return this.jeKamenna; }
     public int getTeplota() { return this.teplota; }
 
+    @Override
+    public String toString() {
+        return nazev;
+    }
 }
