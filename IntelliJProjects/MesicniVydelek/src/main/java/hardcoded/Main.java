@@ -31,22 +31,47 @@ public class Main {
         System.out.println("Celkový výdělek: " + celkovyVydelek + " Kč" );
 
 
-        OptionalDouble prumernyVydelek = mesice.stream()
+        double prumernyVydelek = mesice.stream()
                 .mapToDouble(MesicniVydelek::getVydelek)
-                        .average();
-        System.out.println("Průměrný výdělek: " + prumernyVydelek.getAsDouble() + " Kč" );
+                        .average()
+                                .orElse(0.0);
+        System.out.println("Průměrný výdělek: " + (int) prumernyVydelek + " Kč" );
 
-        OptionalInt nejvetsiVydelek = mesice.stream()
-                .mapToInt(MesicniVydelek::getVydelek)
-                .max();
-        System.out.println("Největší výdělek: " + nejvetsiVydelek.getAsInt() + " Kč");
+        double nejmensiVydelek = mesice.stream()
+                .mapToDouble(MesicniVydelek::getVydelek)
+                .min()
+                .orElse(Double.MIN_VALUE);
+        System.out.println("Nejmenší výdělek: " + (int) nejmensiVydelek + " Kč");
 
-        OptionalInt nejmensiVydelek = mesice.stream()
-                .mapToInt(MesicniVydelek::getVydelek)
-                .min();
-        System.out.println("Největší výdělek: " + nejmensiVydelek.getAsInt() + " Kč");
+        double nejvetsiVydelek = mesice.stream()
+                .mapToDouble(MesicniVydelek::getVydelek)
+                .max()
+                .orElse(Double.MIN_VALUE);
+        System.out.println("Největší výdělek: " + (int) nejvetsiVydelek + " Kč");
 
+        long pocetVydelecnychMesicu = mesice.stream()
+                .filter(v -> v.getVydelek() > 0)
+                .count();
+        System.out.println("Počet výdělečných měsíců: " + pocetVydelecnychMesicu);
 
+        long pocetprodelecnychMesicu = mesice.stream()
+                .filter(v -> v.getVydelek() < 0)
+                .count();
+        System.out.println("Počet prodělečných měsíců: " + pocetprodelecnychMesicu);
+
+        String prvniVydelecnyMesic = mesice.stream()
+                .filter(v -> v.getVydelek() > 0)
+                .findFirst()
+                .map(MesicniVydelek::getMesic)
+                .orElse("Zadny prvni vydelecny mesic");
+        System.out.println("První výdělečný měsíc: " + prvniVydelecnyMesic);
+
+        String posledniVydelecnyMesic = mesice.stream()
+                .filter(v -> v.getVydelek()  > 0)
+                .reduce((first, second) -> second)
+                .map(MesicniVydelek::getMesic)
+                .orElse("Zadny posledni vydelecny mesic");
+        System.out.println("Poslední výdělečný měsíc: " + posledniVydelecnyMesic);
 
 
     }
