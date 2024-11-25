@@ -15,16 +15,33 @@ public class Main {
         List<Polozka> polozkaList = new ArrayList<>();
 
         System.out.println("-------------------------------------");
-        String pokracovat = "ano";
-        while (!pokracovat.equals("ne"))
+        boolean pokracovat = true;
+        while (pokracovat)
         {
             System.out.print("Položka: ");
             String polozka = scanner.nextLine();
-            System.out.print("Kategorie: ");
-            int kategorieInput = Integer.parseInt(scanner.nextLine());
-            polozkaList.add(new Polozka(polozka, kategorie[kategorieInput]));
+
+            boolean jeSpravne = false;
+            while (!jeSpravne) {
+                try {
+                    System.out.print("Kategorie: ");
+                    int kategorieInput = Integer.parseInt(scanner.nextLine());
+                    if (kategorieInput >= kategorie.length || kategorieInput < 0) {
+                        throw new Exception();
+                    }
+                    polozkaList.add(new Polozka(polozka, kategorie[kategorieInput]));
+                    jeSpravne = true;
+                } catch (Exception e) {
+                    System.out.println("zadej znovu");
+                }
+            }
+
             System.out.print("Přidat další položku [ano/ne]: ");
-            pokracovat = scanner.nextLine();
+            String volba = scanner.nextLine();
+
+            if (!volba.equalsIgnoreCase("ano")) {
+                pokracovat =false;
+            }
         }
         System.out.println("-------------------------------------");
 
