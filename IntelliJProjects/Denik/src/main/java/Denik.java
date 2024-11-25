@@ -124,7 +124,7 @@ public class Denik {
         System.out.println("- novy: Vytvoření nového záznamu");
         System.out.println("- zaznamy: Zobrazí všechny záznamy");
         System.out.println("- smaz: Odstranění záznamu");
-        System.out.println("- hledat: Hledat zaznamu");
+        System.out.println("- hledat: Hledat zaznamu (novy feature)");
         System.out.println("- zavri: Zavření deníku a ukončení programu");
         System.out.println("----------------   MENU   ----------------");
 
