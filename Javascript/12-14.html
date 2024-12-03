@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+	// řetězec, který chceme dekódovat
+// 	let sifrovanaZprava = ".-.. . --- -. .- .-. -.. ---";
+
+// 	// řetězec s dekódovanou zprávou
+// 	let dekodovanaZprava = "";
+
+	let abeceda = "abcdefghijklmnopqrstuvwxyz";
+	let morseovyZnaky = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+		"..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
+		"...-", ".--", "-..-", "-.--", "--.."];
+
+// 		let slova = sifrovanaZprava.split(" ");
+// for (let morseuvZnak of slova) {
+// 	let index = morseovyZnaky.indexOf(morseuvZnak);
+// 	if (index >= 0) {
+// 		abecedniZnak = abeceda.charAt(index);
+// 	}
+// 	dekodovanaZprava += abecedniZnak;
+// }
+// document.write(dekodovanaZprava);
+
+//Dekódovaná zpráva: leonardo
+
+let puvodniZprava = "leonardo";
+let sifrovanaZprava = "";
+
+let pismena = puvodniZprava.split("");
+for (let pismeno of pismena) {
+	let index = abeceda.indexOf(pismeno);
+	sifrovanaZprava += morseovyZnaky[index] + " ";
+}
+document.write(sifrovanaZprava);
+
+
+	</script>
+	
+</body>
+</html>

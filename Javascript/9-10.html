@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+
+let ovoce = ['jablko', 'hruska', 'banan', 'pomeranc', 'kiwi', 'mango', 'ananas', 'jahoda', 'malina', 'boruvka'];
+let zelenina = ['brambor', 'mrkev', 'petrzel', 'celer', 'kedlubna', 'rajce', 'okurka', 'paprika', 'cibule', 'cesnek'];
+
+	let vstup = prompt('Zadejte ovoce nebo zeleninu:');
+	if (ovoce.includes(vstup)) {
+		document.write('Ano, je to ovoce.');
+	} else if (zelenina.includes(vstup)) {
+		document.write('Ano, je to zelenina.');
+	} else {
+		document.write('Neni to ani ovoce ani zelenina.');
+	}
+
+	</script>
+	
+</body>
+</html>
