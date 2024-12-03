@@ -9,38 +9,30 @@
 
 	<script>
 
-	// řetězec, který chceme dekódovat
-// 	let sifrovanaZprava = ".-.. . --- -. .- .-. -.. ---";
+		// function jednoduchyPriklad(text, delka) {
+		// 	let newtext = text.substring(0, delka - 3) + '...';
+		// 	return newtext;
+		// }
 
-// 	// řetězec s dekódovanou zprávou
-// 	let dekodovanaZprava = "";
+		// document.write(jednoduchyPriklad('Černé díry jsou tam, kde bůh dělil nulou', 16));
 
-	let abeceda = "abcdefghijklmnopqrstuvwxyz";
-	let morseovyZnaky = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
-		"..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-",
-		"...-", ".--", "-..-", "-.--", "--.."];
 
-// 		let slova = sifrovanaZprava.split(" ");
-// for (let morseuvZnak of slova) {
-// 	let index = morseovyZnaky.indexOf(morseuvZnak);
-// 	if (index >= 0) {
-// 		abecedniZnak = abeceda.charAt(index);
-// 	}
-// 	dekodovanaZprava += abecedniZnak;
-// }
-// document.write(dekodovanaZprava);
+		// function napisDatum(den) {
+		// 	return den.getDate() + "." + den.getMonth() + "." + den.getFullYear();
+		// }
 
-//Dekódovaná zpráva: leonardo
+		// let dnes = new Date();
+		// document.write("Dnes je: " + napisDatum(dnes));
 
-let puvodniZprava = "leonardo";
-let sifrovanaZprava = "";
+		let poleCisel = [10, 15, 8, 12, 16, 4, 1, 5, 14];
+		function najdi3Nejvetsi(pole) {
+			pole.sort(function (a, b) {
+				return a - b;
+			}).reverse();
+			return pole[0] + pole[1] + pole[2];
+		}
 
-let pismena = puvodniZprava.split("");
-for (let pismeno of pismena) {
-	let index = abeceda.indexOf(pismeno);
-	sifrovanaZprava += morseovyZnaky[index] + " ";
-}
-document.write(sifrovanaZprava);
+		document.write(najdi3Nejvetsi(poleCisel));
 
 
 	</script>
