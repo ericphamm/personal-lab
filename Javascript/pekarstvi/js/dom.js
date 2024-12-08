@@ -24,9 +24,23 @@ document.addEventListener("DOMContentLoaded", function() {
 		console.log(spans[i]);
 	}
 
-	let paragraph = document.querySelectorAll("p");
-	for (let i = 0; i < spans.length; i++) {
-		paragraph[1].  = "Dnes mame v nabidce";
-	}
-	paragraph.textContent = "Dnes mame v nabidce";
+	// let paragraph = document.querySelectorAll("p");
+	// for (let i = 0; i < spans.length; i++) {
+	// 	paragraph[1]  = "Dnes mame v nabidce";
+	// }
+	// paragraph.textContent = "Dnes mame v nabidce";
+
+	let hiddenText = document.querySelectorAll("p");
+	console.log(hiddenText[1].innerText);
+	console.log(hiddenText[1].textContent);
+
+	let products = document.querySelectorAll("li");
+	products[4].innerHTML = "<s>DORTY</s>"
+
+	let logoImage = document.querySelector("#logo");
+	console.log(logoImage.hasAttribute("alt"));
+
+	let image = document.querySelector('[src="img/pastry.jpg"]');
+	image.setAttribute("alt","Chleb");
+	console.log(image.hasAttribute("alt"));
 });
