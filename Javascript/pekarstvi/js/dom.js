@@ -43,4 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	let image = document.querySelector('[src="img/pastry.jpg"]');
 	image.setAttribute("alt","Chleb");
 	console.log(image.hasAttribute("alt"));
+
+	let menu = document.querySelector("li");
+	menu.setAttribute("class", "important");
 });
