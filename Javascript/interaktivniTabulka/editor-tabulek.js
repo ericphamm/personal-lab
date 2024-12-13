@@ -88,6 +88,14 @@ function pridejRadekDolu() {
 	}
 }
 
+function pridejSloupecDoleva() {
+	let indexVybraneho = indexSloupecAktivniBunky;
+	for (let i = 0; i < tabulka.childNodes.length; i++) {
+		let novaBunka = vytvorBunku();
+		tabulka.childNodes[i].insertBefore(novaBunka, tabulka.childNodes[i].childNodes[indexVybraneho]);
+	}
+}
+
 window.onload = function () {
 	vytvorOvladaciTlacitka();
 	vytvorVychoziTabulku();
