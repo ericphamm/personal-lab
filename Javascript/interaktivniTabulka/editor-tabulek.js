@@ -42,10 +42,10 @@ function vytvorTlacitko(popisek) {
 function vytvorOvladaciTlacitka() {
 	vytvorTlacitko("Přidat řádek dolů").onclick = pridejRadekDolu;
 	vytvorTlacitko("Přidat řádek nahoru").onclick = pridejRadekNahoru;
-	vytvorTlacitko("Přidat sloupec vlevo");
-	vytvorTlacitko("Přidat sloupec vpravo");
-	vytvorTlacitko("Odstranit řádek");
-	vytvorTlacitko("Odstranit sloupec");
+	vytvorTlacitko("Přidat sloupec vlevo").onclick = pridejSloupecDoleva;
+	vytvorTlacitko("Přidat sloupec vpravo").onclick = pridejSloupecDoprava;
+	vytvorTlacitko("Odstranit řádek").onclick = smazRadek;
+	vytvorTlacitko("Odstranit sloupec").onclick = smazSloupec;
 }
 
 function vytvorRadek() {
@@ -89,10 +89,34 @@ function pridejRadekDolu() {
 }
 
 function pridejSloupecDoleva() {
-	let indexVybraneho = indexSloupecAktivniBunky;
+	let indexVybraneho = indexSloupecAktivniBunky();
 	for (let i = 0; i < tabulka.childNodes.length; i++) {
 		let novaBunka = vytvorBunku();
 		tabulka.childNodes[i].insertBefore(novaBunka, tabulka.childNodes[i].childNodes[indexVybraneho]);
+	}
+}
+
+function pridejSloupecDoprava () {
+	let indexVybraneho = indexSloupecAktivniBunky();
+	for (let i = 0; i < tabulka.childNodes.length; i++) {
+		let novaBunka = vytvorBunku();
+		if (tabulka.childNodes[i].childNodes[indexVybraneho] == tabulka.childNodes[i].lastElementChild) {
+			tabulka.childNodes[i].appendChild(novaBunka);
+		} else {
+			tabulka.childNodes[i].insertBefore(novaBunka, tabulka.childNodes[i].childNodes[indexVybraneho + 1]);
+		}
+	}
+}
+
+function smazRadek() {
+	let indexVybraneho = indexRadkuAktivniBunky();
+	tabulka.removeChild(tabulka.childNodes[indexVybraneho]);
+}
+
+function smazSloupec() {
+	let indexVybraneho = indexSloupecAktivniBunky();
+	for (let i = 0; i < tabulka.childNodes.length; i++) {
+		tabulka.childNodes[i].removeChild(tabulka.childNodes[i].childNodes[indexVybraneho]);
 	}
 }
 
