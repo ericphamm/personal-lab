@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java SpringBoot Kalkulacka</title>
+</head>
+<body>
+<h1>Spring Kalkulacka</h1>
+
+<form action="/index" method="post">
+    <label>
+        First number:
+        <input type="number" id="number1" name="number1" value="0"/>
+    </label><br/>
+
+    <label>Operation:
+        <select id="operation" name="operation">
+            <option value="+">Plus</option>
+            <option value="-">Minus</option>
+            <option value="*">Times</option>
+            <option value="/">Divide by</option>
+        </select>
+    </label><br/>
+
+    <label>
+        Second number:
+        <input type="number" id="number2" name="number2" value="0"/>
+    </label><br/>
+
+    <input type="submit" value="Submit"/> <input type="reset" value="Reset"/>
+</form>
+
+</body>
+</html>
