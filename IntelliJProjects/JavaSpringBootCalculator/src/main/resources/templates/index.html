@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Java SpringBoot Kalkulacka</title>
 </head>
 <body>
-<h1>Spring Kalkulacka</h1>
+<h1 th:text="${titleDTO.title}">
+</h1>
+
+<!--<p th:text=""></p>-->
 
 <form action="/index" method="post">
     <label>
