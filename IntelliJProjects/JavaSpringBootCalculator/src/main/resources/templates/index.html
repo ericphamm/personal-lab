@@ -10,14 +10,14 @@
 
 <p th:text="${titleDTO.description}"></p>
 
-<form action="/index" method="post">
+<form action="/calculator" method="post">
     <label>
         First number:
         <input type="number" id="number1" name="number1" th:field="${calculatorDTO.number1}"/>
     </label><br/>
 
     <label>Operation:
-        <select id="operation" name="operation" th:field="${calculatorDTO.operation}>
+        <select id="operation" name="operation" th:field="${calculatorDTO.operation}">
             <option value="+">Plus</option>
             <option value="-">Minus</option>
             <option value="*">Times</option>

@@ -5,6 +5,7 @@ import cz.itnetwork.spring.models.CalculatorDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -24,13 +25,11 @@ public class CalculatorController {
 //    }
 
     @GetMapping
-    public String renderCalculator(TitleDTO titleDTO,
-                                   CalculatorDTO calculatorDTO) {
+    public String renderCalculator(@ModelAttribute TitleDTO titleDTO,
+                                   @ModelAttribute CalculatorDTO calculatorDTO) {
         //set data intoDTO
         titleDTO.setTitle("SpringBoot Calculator!");
         titleDTO.setDescription("A simple calculator built with Spring Boot.");
-
-
 
         //return the view name
         return "index";
