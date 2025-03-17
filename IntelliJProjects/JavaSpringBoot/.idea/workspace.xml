@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3370d627-0388-425d-8fd7-412b35079f67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pozdrav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/itnetwork/spring/controllers/GreetingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/itnetwork/spring/controllers/GreetingsController.java" afterDir="false" />
-    </list>
+    <list default="true" id="3370d627-0388-425d-8fd7-412b35079f67" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
