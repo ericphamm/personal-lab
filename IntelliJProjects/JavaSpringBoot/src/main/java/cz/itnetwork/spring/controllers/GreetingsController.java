@@ -11,4 +11,9 @@ public class GreetingsController {
     public @ResponseBody String sayHi() {
         return "Hello World!";
     }
+
+    @GetMapping("/lorem")
+    public @ResponseBody String sayLorem() {
+        return "Lorem epsum";
+    }
 }
