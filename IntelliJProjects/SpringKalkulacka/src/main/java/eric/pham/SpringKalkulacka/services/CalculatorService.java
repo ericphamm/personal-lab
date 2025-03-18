@@ -18,6 +18,8 @@ public class CalculatorService {
                 return calculator.getFirstNumber() / calculator.getSecondNumber();
             case "*":
                 return calculator.getFirstNumber() * calculator.getSecondNumber();
+            default:
+                throw new IllegalArgumentException("Invalid operation" + calculator.getOperation());
         }
     }
 }
