@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Calculator</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        font-size: 24px;
+        color:red;
+    }
+    label, input, select {
+        display: block;
+        margin: 5px 0;
+    }
+    button {
+      display: inline;
+      margin: 5px 0;
+
+    }
+  </style>
+</head>
+<body>
+<h1>Spring calculator</h1>
+<form action="/calculate" method="post">
+  <label>
+    First number:
+    <input type="number" id="firstNumber" name="firstNumber" value="0" required>
+  </label>
+
+  <label for="operation">Operation:</label>
+  <select id="operation" name="operation">
+    <option value="plus">Plus</option>
+    <option value="minus">Minus</option>
+    <option value="multiply">Multiply</option>
+    <option value="divide">Divide</option>
+  </select>
+
+  <label for="secondNumber">Second number:</label>
+  <input type="number" id="secondNumber" name="secondNumber" value="0" required>
+
+  <div>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+
+</form>
+</body>
+</html>
