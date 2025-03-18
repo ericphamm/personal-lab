@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Generator</title>
+  <style>
+    label, input, button {
+    display: block;
+    margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1 th:text="${titleDTO.title}"></h1>
+
+<form method="post" action="/generator">
+
+  <label>Cislo od:
+    <input type="number" id="cislood" th:field="${generatorDTO.cisloOd}" required>
+  </label>
+
+  <label>Cislo do:
+    <input type="number" id="cislodo" th:field="${generatorDTO.cisloDo}" required>
+  </label>
+
+  <button type="submit">Vygenerovat</button>
+</form>
+
+<h1>Nahodne Cislo:</h1>
+
+<p th:text="${generatorResult}"></p>
+
+
+
+</body>
+</html>
