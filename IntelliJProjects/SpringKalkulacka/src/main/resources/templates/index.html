@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-<h1>Spring calculator</h1>
+<h1 th:text="${pageTitle}"></h1>
 <form action="/calculate" method="post">
   <label>
     First number:

@@ -1,6 +1,7 @@
 package eric.pham.SpringKalkulacka.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,9 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("kalkulacka")
 public class KalkulackaController {
 
+//    @GetMapping
+//    public String zobrazujKalkulacku() {
+//        return "index";
+//    }
+
     @GetMapping
-    public String zobrazujKalkulacku() {
+    public String renderSomething(Model model) {
+        model.addAttribute("pageTitle", "Toto je Spring Kalkulacka!");
+
         return "index";
     }
-
 }
