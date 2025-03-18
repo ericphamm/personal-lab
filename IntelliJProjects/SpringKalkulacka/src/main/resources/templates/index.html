@@ -28,7 +28,7 @@
 <form action="/calculate" method="post">
   <label>
     First number:
-    <input type="number" id="firstNumber" name="firstNumber" value="0" required>
+    <input type="number" id="firstNumber" name="firstNumber" th:field="${calculatorDTO.firstNumber}" required>
   </label>
 
   <label for="operation">Operation:</label>
@@ -40,7 +40,7 @@
   </select>
 
   <label for="secondNumber">Second number:</label>
-  <input type="number" id="secondNumber" name="secondNumber" value="0" required>
+  <input type="number" id="secondNumber" name="secondNumber" th:field="${calculatorDTO.secondNumber}" value="0" required>
 
   <div>
     <button type="submit">Submit</button>
