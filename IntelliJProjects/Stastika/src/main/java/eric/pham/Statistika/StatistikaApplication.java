@@ -1,13 +1,13 @@
-package eric.pham.Stastika;
+package eric.pham.Statistika;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StastikaApplication {
+public class StatistikaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StastikaApplication.class, args);
+		SpringApplication.run(StatistikaApplication.class, args);
 	}
 
 }

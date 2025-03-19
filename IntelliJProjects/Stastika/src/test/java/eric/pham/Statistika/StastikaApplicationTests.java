@@ -1,4 +1,4 @@
-package eric.pham.Stastika;
+package eric.pham.Statistika;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
