@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zvetseni textu</title>
+</head>
+<body>
+
+<h1>Zvetsovac I Zmensovac Textu</h1>
+
+<form action="/zvetsovac" method="post">
+  <p>Zadejte text</p>
+  <input type="text" th:field="${zvetsovacDTO.text}" required>
+  <button type="submit" name="action" value="zvetsi">Zvetsi text</button>
+  <button type="submit" name="action" value="zmensi">Zmensi text</button>
+
+  <p th:text="${vyslednyText}"></p>
+</form>
+</body>
+</html>
