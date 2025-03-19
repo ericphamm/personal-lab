@@ -12,21 +12,21 @@
 
 <form action="/statistika" method="post">
     <p>Zadej cela cisla</p>
-    <input>
+    <input th:field="${statistikaDTO.input}">
     <button type="submit" >Vytvor statistiku</button>
 </form>
 
 <p>Soucet</p>
-<p th:text="${stastikaDTO.}"></p>
+<p th:text="${soucet}"></p>
 
 <p>Nejmensi cislo</p>
-<p>Soucet</p>
+<p th:text="${nejmensi}"></p>
 
 <p>Nejvetsi cislo</p>
-<p>Soucet</p>
+<p th:text="${nejvetsi}"></p>
 
 <p>Prumer</p>
-<p>Soucet</p>
+<p th:text="${prumer}"></p>
 
 <p>Serazena cisla</p>
 <p>Soucet</p>
