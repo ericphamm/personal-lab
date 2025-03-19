@@ -18,20 +18,22 @@ public class KalkulackaController {
     @Autowired
     private CalculatorService calculatorService;
 
-    @GetMapping("kalkulacka")
+    @GetMapping("/kalkulacka")
     public String zobrazujKalkulacku(@ModelAttribute TitleDTO titleDTO,
                                      @ModelAttribute CalculatorDTO calculatorDTO) {
         titleDTO.setTitle("Takhle se zobrazuje nadpis");
         return "index";
     }
 
-    @PostMapping("/calculate")
+    @PostMapping("/kalkulacka")
     public String calculate(
             @ModelAttribute CalculatorDTO calculatorDTO,
-            Model model
+            Model model,
+            @ModelAttribute TitleDTO titleDTO
     ) {
+        titleDTO.setTitle("Takhle se zobrazuje nadpis");
         float calculationResult = calculatorService.calculate(calculatorDTO);
         model.addAttribute("calculationResult", calculationResult);
-        return "result";
+        return "index";
     }
 }

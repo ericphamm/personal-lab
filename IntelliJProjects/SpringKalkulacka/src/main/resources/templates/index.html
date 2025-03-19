@@ -25,7 +25,7 @@
 </head>
 <body>
 <h1 th:text="${titleDTO.title}"></h1>
-<form action="/calculate" method="post">
+<form action="/kalkulacka" method="post">
   <label>
     First number:
     <input type="number" id="firstNumber" name="firstNumber" th:field="${calculatorDTO.firstNumber}" required>
@@ -46,6 +46,15 @@
     <button type="submit">Submit</button>
     <button type="reset">Reset</button>
   </div>
+
+
+  <h1>Result</h1>
+  Number 1: <span th:text="${calculatorDTO.firstNumber}"></span><br/>
+  Number 2: <span th:text="${calculatorDTO.secondNumber}"></span><br/>
+
+  <p>
+    Výsledek: <span th:text="${calculationResult}"><!-- Zde se bude vypisovat výsledek --></span>
+  </p>
 
 </form>
 </body>
