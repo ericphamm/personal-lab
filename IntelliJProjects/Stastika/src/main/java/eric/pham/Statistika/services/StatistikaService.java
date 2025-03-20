@@ -1,6 +1,7 @@
 package eric.pham.Statistika.services;
 
 import eric.pham.Statistika.dto.StatistikaDTO;
+import eric.pham.Statistika.dto.StatistikaResultDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -16,23 +17,15 @@ public class StatistikaService {
                 .collect(Collectors.toList());
     }
 
-    public int spocitejSoucet (StatistikaDTO statistikaDTO) {
+    public StatistikaResultDTO vygenerujStatistiku(StatistikaDTO statistikaDTO) {
         List<Integer> cisla = convertToList(statistikaDTO);
-        return cisla.stream().mapToInt(Integer::intValue).sum();
+
+        int soucet = cisla.stream().mapToInt(Integer::intValue).sum();
+        int nejmensi = cisla.stream().mapToInt(Integer::intValue).min().orElse(0);
+        int nejvetsi = cisla.stream().mapToInt(Integer::intValue).max().orElse(0);
+        float prumer = (float)cisla.stream().mapToInt(Integer::intValue).average().orElse(0);
+
+        return new StatistikaResultDTO(soucet, nejmensi, nejvetsi, prumer);
     }
 
-    public int spocitejNejmensi (StatistikaDTO statistikaDTO) {
-        List<Integer> cisla = convertToList(statistikaDTO);
-        return cisla.stream().mapToInt(Integer::intValue).min().orElse(0);
-    }
-
-    public int spocitejNejvetsi(StatistikaDTO statistikaDTO) {
-        List<Integer> cisla = convertToList(statistikaDTO);
-        return cisla.stream().mapToInt(Integer::intValue).max().orElse(0);
-    }
-
-    public float spocitejPrumer(StatistikaDTO statistikaDTO) {
-        List<Integer> cisla = convertToList(statistikaDTO);
-        return (float) cisla.stream().mapToInt(Integer::intValue).average().orElse(0);
-    }
 }
