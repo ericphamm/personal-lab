@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Error</title>
+  <meta charset="UTF-8">
+  <title>Neznama Chyba</title>
 </head>
 <body>
-<h1>Error</h1>
-<p style="color: red;" th:text="${errorMessage}">Something went wrong</p>
-<a href="/kalkulacka">Go back</a>
+
+<h1>Nastala chyba</h1>
+<p th:text="${status}"></p>
+
+<h2>Chyba</h2>
+<pre th:text="${trace}"></pre>
+
+<p th:text="${timestamp}"></p>
+
+<p th:text="${message}"></p>
+
+
 </body>
 </html>
