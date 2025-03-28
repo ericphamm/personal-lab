@@ -1,22 +1,31 @@
 package eric.pham.SpringBMICalculator.dto;
 
 public class BMIDTO {
-    float height;
-    float weight;
+    private double height;
+    private double weight;
+    private double bmi;
 
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public double getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(double bmi) {
+        this.bmi = bmi;
     }
 }
