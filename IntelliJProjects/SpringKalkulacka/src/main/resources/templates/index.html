@@ -19,43 +19,53 @@
     button {
       display: inline;
       margin: 5px 0;
-
+    }
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
 <h1 th:text="${titleDTO.title}"></h1>
-<form action="/kalkulacka" method="post">
-  <label>
-    First number:
-    <input type="number" id="firstNumber" name="firstNumber" th:field="${calculatorDTO.firstNumber}" required>
-  </label>
+<form action="/kalkulacka" method="post" th:object="${calculatorDTO}">
+  <div th:if="${#fields.hasErrors('firstNumber')}" class="error">
+    <p th:errors="*{firstNumber}">First number error</p>
+  </div>
+  <label for="firstNumber">First number:</label>
+  <input type="number" id="firstNumber" name="firstNumber" th:field="*{firstNumber}" step="any">
 
+  <div th:if="${#fields.hasErrors('operation')}" class="error">
+    <p th:errors="*{operation}">Operation error</p>
+  </div>
   <label for="operation">Operation:</label>
-  <select id="operation" name="operation">
+  <select id="operation" name="operation" th:field="*{operation}">
+    <option value="">Select an operation</option>
     <option value="+">Plus</option>
     <option value="-">Minus</option>
     <option value="*">Multiply</option>
     <option value="/">Divide</option>
   </select>
 
+  <div th:if="${#fields.hasErrors('secondNumber')}" class="error">
+    <p th:errors="*{secondNumber}">Second number error</p>
+  </div>
   <label for="secondNumber">Second number:</label>
-  <input type="number" id="secondNumber" name="secondNumber" th:field="${calculatorDTO.secondNumber}" value="0" required>
+  <input type="number" id="secondNumber" name="secondNumber" th:field="*{secondNumber}" step="any">
 
   <div>
     <button type="submit">Submit</button>
     <button type="reset">Reset</button>
   </div>
 
-
   <h1>Result</h1>
-  Number 1: <span th:text="${calculatorDTO.firstNumber}"></span><br/>
-  Number 2: <span th:text="${calculatorDTO.secondNumber}"></span><br/>
+  <div th:if="${calculationResult != null}">
+    Number 1: <span th:text="${calculatorDTO.firstNumber}"></span><br/>
+    Number 2: <span th:text="${calculatorDTO.secondNumber}"></span><br/>
 
-  <p>
-    Výsledek: <span th:text="${calculationResult}"><!-- Zde se bude vypisovat výsledek --></span>
-  </p>
-
+    <p>
+      Výsledek: <span th:text="${calculationResult}"></span>
+    </p>
+  </div>
 </form>
 </body>
 </html>
