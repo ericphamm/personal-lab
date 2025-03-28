@@ -64,6 +64,9 @@ public class KalkulackaController {
 
             if (statusCode == HttpStatus.NOT_FOUND.value())
                 return "error404";
+
+            if (statusCode == HttpStatus.BAD_REQUEST.value())
+                return "invalid-form";
         }
 
         return "error";
