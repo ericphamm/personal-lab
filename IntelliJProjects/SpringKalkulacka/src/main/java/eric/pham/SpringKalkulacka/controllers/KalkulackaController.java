@@ -3,8 +3,11 @@ package eric.pham.SpringKalkulacka.controllers;
 import eric.pham.SpringKalkulacka.dto.CalculatorDTO;
 import eric.pham.SpringKalkulacka.dto.TitleDTO;
 import eric.pham.SpringKalkulacka.services.CalculatorService;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,5 +53,19 @@ public class KalkulackaController {
     @ExceptionHandler(IllegalArgumentException.class)
     public String handleIllegalArgumentException() {
         return "invalid-form";
+    }
+
+    @RequestMapping("/error")
+    public String handleError(HttpServletRequest request) {
+        Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        if (status != null) {
+            int statusCode = Integer.parseInt(status.toString());
+
+            if (statusCode == HttpStatus.NOT_FOUND.value())
+                return "error404";
+        }
+
+        return "error";
     }
 }
