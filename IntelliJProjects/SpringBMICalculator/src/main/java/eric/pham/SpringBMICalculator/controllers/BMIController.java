@@ -25,6 +25,7 @@ public class BMIController {
     public String calculate(@ModelAttribute BMIDTO bmiDTO,
                             Model model) {
         double bmiResult = bmiService.calculate(bmiDTO);
+        model.addAttribute("bmiResult", bmiResult);
         return "index";
     }
 }
