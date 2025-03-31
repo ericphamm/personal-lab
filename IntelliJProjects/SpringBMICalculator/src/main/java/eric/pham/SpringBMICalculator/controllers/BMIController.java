@@ -22,8 +22,9 @@ public class BMIController {
     }
 
     @PostMapping("/bmicalculator")
-    public String calculate(@ModelAttribute BMIDTO bmidto,
+    public String calculate(@ModelAttribute BMIDTO bmiDTO,
                             Model model) {
+        double bmiResult = bmiService.calculate(bmiDTO);
         return "index";
     }
 }
