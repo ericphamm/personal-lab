@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BMIService {
 
-   public double calculate(BMIDTO bmidto) {
-       return bmidto.getWeight() / Math.pow((bmidto.getHeight() / 100.0), 2);
+   public double calculate(BMIDTO bmiDTO) {
+       return bmiDTO.getWeight() / Math.pow((bmiDTO.getHeight() / 100.0), 2);
    }
 }
