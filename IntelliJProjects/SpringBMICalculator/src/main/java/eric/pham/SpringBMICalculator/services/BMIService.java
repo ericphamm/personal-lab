@@ -12,7 +12,7 @@ public class BMIService {
 
     public String getBMICategory(double bmi) {
         if (bmi < 18.5) {
-            return "Underweight";
+            return "Too skinny man";
         } else if (bmi < 25) {
             return "Normal weight!";
         } else if (bmi < 30) {
