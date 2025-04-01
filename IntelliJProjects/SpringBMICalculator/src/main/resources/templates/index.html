@@ -2,102 +2,137 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMI Calculator</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7f9;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #e9eef1;
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
-      padding: 40px;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    .container {
-      background-color: #35454f;
-      padding: 40px;
-      border-radius: 8px;
-      width: 400px;
+    .calculator-container {
+      background-color: #2d3c45;
       color: white;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin: 0 0 5px 0;
+      font-weight: 600;
     }
 
-    p {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: bold;
-      margin-top: 20px;
-      display: block;
+    .subtitle {
+      font-size: 18px;
+      margin: 0 0 30px 0;
+      opacity: 0.9;
+      font-weight: 400;
     }
 
     .input-group {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
     }
 
-    .input-group input {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
+    label {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .input-wrapper {
+      display: flex;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
       border: none;
       border-radius: 4px 0 0 4px;
+      outline: none;
     }
 
-    .input-group .unit {
-      background-color: #a5bdc7;
-      padding: 10px;
+    .unit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #c6d1d8;
+      color: #333;
+      padding: 0 20px;
+      font-weight: 500;
       border-radius: 0 4px 4px 0;
-      color: white;
-      font-weight: bold;
     }
 
     .calculate-btn {
-      margin-top: 20px;
-      width: 100%;
-      background-color: #42c16e;
+      background-color: #4caf7d;
       color: white;
       border: none;
-      padding: 15px;
-      font-size: 16px;
-      border-radius: 6px;
+      border-radius: a4px;
+      padding: 18px 0;
+      font-size: 18px;
+      font-weight: 500;
+      width: 100%;
       cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 4px;
     }
 
     .calculate-btn:hover {
-      background-color: #37a85b;
+      background-color: #3d9c6c;
     }
 
-    h2 {
-      margin-top: 30px;
-      font-size: 20px;
+    .result {
+      background-color: #2d3c45;
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+
+    .result h2 {
+      margin: 0 0 10px 0;
     }
   </style>
 </head>
 <body>
-<h1>BMI Calculator</h1>
-<form method="post" action="/bmicalculator" th:object="${bmiDTO}">
-  <label>Height (cm):</label>
-  <input type="text" th:field="*{height}">
+<div class="calculator-container">
+  <h1>BMI for adults</h1>
+  <p class="subtitle">Calculate body mass index for adults</p>
 
-  <label>Weight (kg):</label>
-  <input type="text" th:field="*{weight}">
+  <form method="post" action="/bmicalculator" th:object="${bmiDTO}">
+    <div class="input-group">
+      <label>Height</label>
+      <div class="input-wrapper">
+        <input type="number" th:field="*{height}" placeholder="182">
+        <div class="unit">cm</div>
+      </div>
+    </div>
 
-  <button type="submit">Calculate</button>
+    <div class="input-group">
+      <label>Weight</label>
+      <div class="input-wrapper">
+        <input type="number" th:field="*{weight}" placeholder="100">
+        <div class="unit">kg</div>
+      </div>
+    </div>
 
-</form>
+    <button type="submit" class="calculate-btn">Calculate</button>
+  </form>
 
-<div th:if="${bmiScore != null}">
-  <h2>Youre BMI is: <span th:text="${bmiScore}"></span></h2>
-  <h2>Your Category is: <span th:text="${bmiCategory}"></span></h2>
-
+  <div class="result" th:if="${bmiScore != null}">
+    <h2>Your BMI is: <span th:text="${bmiScore}"></span></h2>
+    <h2>Your Category is: <span th:text="${bmiCategory}"></span></h2>
+  </div>
 </div>
-
 </body>
 </html>
