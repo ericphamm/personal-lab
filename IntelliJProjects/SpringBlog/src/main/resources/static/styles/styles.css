@@ -9,16 +9,17 @@
     src: url(../fonts/Poppins-ExtraBold.ttf);
     font-weight: bold;
 }
-html {
-          background: #414042;
-}
+
 body {
     font: 14px "Poppins";
     background: #f9f9f9;
     color: #414042;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     margin: 0;
     padding: 100px 0px 0px 0px;
+    min-height: 100vh;
     min-width: 960px;
 }
 
@@ -93,9 +94,14 @@ nav ul a:hover,
 }
 
 article {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 50px 50px 10px 50px;
+    padding: 80px 50px;
+    flex: 1;
+}
+
+.domu-article {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px max-content;
 }
 
 article h1,
@@ -106,6 +112,7 @@ article h5,
 article h6 {
     padding: 10px 0;
     color: #00386B;
+    width: max-content;
 }
 
 article h1 {
@@ -113,7 +120,6 @@ article h1 {
     font-size: 2.3em;
     font-weight: bold;
     text-transform: uppercase;
-    width: max-content;
     border-bottom: 4px solid #EF6534;
 }
 
@@ -122,7 +128,7 @@ article h2 {
 }
 
 article header {
-    height: 80px;
+    height: 100px;
 }
 
 article section p {
@@ -134,6 +140,14 @@ article section a {
     color: #EF6534;
 }
 
+.domu-article img {
+    width: 300px;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    grid-column: 2;
+    filter: grayscale(1);
+}
+
 footer {
     box-sizing: border-box;
     text-align: center;
@@ -141,7 +155,7 @@ footer {
     color: white;
     background: #414042;
     padding: 50px 0 0 0;
-    clip-path: polygon(0 30px, 100% 0, 100% 105%, 0 105%);
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
 }
 
 footer a {
@@ -149,19 +163,13 @@ footer a {
     text-decoration: none;
 }
 
-.avatar{
-	float: right;
-	width: 300px;
-	padding-left: 10px;
-	filter: grayscale(1);
-}
-
-.cistic {
-    clear: both;
-}
-
 .centrovany {
     text-align: center;
+}
+
+#centrovac {
+    margin: 0 auto;
+    max-width: 960px;
 }
 
 .reference-tlacitko {
@@ -172,14 +180,6 @@ footer a {
     text-transform: uppercase;
     padding: 12px 25px;
     border-radius: 25px;
-}
-
-#reference a {
-    text-decoration: none;
-}
-
-#reference a:hover {
-    text-decoration: none;
 }
 
 .kontakt-tlacitko {
@@ -198,6 +198,10 @@ footer a {
 
 .vlevo {
     float: left;
+}
+
+.cistic {
+    clear: both;
 }
 
 #dovednosti td {
