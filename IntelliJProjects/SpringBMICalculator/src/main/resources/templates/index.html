@@ -8,10 +8,10 @@
 <h1>BMI Calculator</h1>
 <form method="post" action="/bmicalculator">
   <label>Height (cm):</label>
-  <input type="text" th:field="${height}">
+  <input type="text" th:field="*{height}">
 
   <label>Weight (kg):</label>
-  <input type="text" th:field="${weight}">
+  <input type="text" th:field="*{weight}">
 
   <button type="submit">Calculate</button>
 
