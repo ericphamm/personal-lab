@@ -25,8 +25,10 @@ public class BMIController {
     public String calculate(Model model,
                             BMIDTO bmiDTO) {
         double bmiScore = bmiService.calculateBMI(bmiDTO);
+        String bmiCategory = bmiService.getBMICategory(bmiScore);
         model.addAttribute("bmiDTO", bmiDTO);
         model.addAttribute("bmiScore", bmiScore);
+        model.addAttribute("bmiCategory", bmiCategory);
         return "index";
     }
 }
