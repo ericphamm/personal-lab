@@ -18,11 +18,11 @@ public class BMIService {
         } else if (bmi < 30) {
             return "Overweight";
         } else if (bmi < 35) {
-            return "Obesity Class I";
+            return "Damn, youre fat bro!";
         } else if (bmi <40) {
-            return "Obesity Class II";
+            return "Youre fat as hell man";
         } else {
-            return "Obesity Class III";
+            return "Come on bro, this is too much";
         }
     }
 }
