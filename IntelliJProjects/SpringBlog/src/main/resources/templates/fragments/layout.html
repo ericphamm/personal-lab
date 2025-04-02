@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="description" content="Osobní portfolio programátora HoBiho." />
+    <meta name="keywords" content="portfolio, programátor, HoBi" />
+    <meta name="author" content="HoBi" />
+    <title>Moje první webová stránka</title>
+
+    <link rel="stylesheet" th:href="@{/styles/lightbox.min.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" type="text/css" />
+    <link rel="shortcut icon" th:href="@{/images/ikona.ico}"/>
+
+    <script th:src="@{/scripts/lightbox-plus-jquery.min.js}"></script>
+
 </head>
 <body>
 
-<footer th:fragrment="footer">
+<header th:fragment="header">
+    <div id="logo">
+        <h1>Honza Bittner</h1>
+        <small>Java developer</small>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Domů</a></li>
+            <li><a href="#">Články</a></li>
+            <li><a href="#">Dovednosti</a></li>
+            <li><a href="#">Reference</a></li>
+            <li><a class="kontakt-tlacitko" href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+<footer th:fragment="footer">
   Vytvoril &copy;Hobi2025 pro <a>ITnetwork</a>
 </footer>
 
