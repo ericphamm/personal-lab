@@ -24,11 +24,11 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#">Domů</a></li>
-            <li><a href="#">Články</a></li>
-            <li><a href="#">Dovednosti</a></li>
-            <li><a href="#">Reference</a></li>
-            <li><a class="kontakt-tlacitko" href="#">Kontakt</a></li>
+            <li><a th:href="@{/}">Domů</a></li>
+            <li><a th:href="@{/articles}">Články</a></li>
+            <li><a th:href="@{/skills}">Dovednosti</a></li>
+            <li><a th:href="@{references}">Reference</a></li>
+            <li><a class="kontakt-tlacitko" th:href="@{contact}">Kontakt</a></li>
         </ul>
     </nav>
 </header>
