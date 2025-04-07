@@ -13,7 +13,10 @@
 
         <section>
 
-            <!-- Zde bude formulář na nový článek -->
+            <form th:object="${articleDTO}">
+                <input th:field="*{title}">
+                <textarea th:field="*{description}"></textarea>
+            </form>
 
             <a class="clanky-tlacitko" th:href="@{/articles}">Zpět na seznam</a>
         </section>
