@@ -15,7 +15,7 @@ public class ArticleDTO {
     private String content;
 
     //getter and setter
-    
+
     public String getTitle() {
         return title;
     }
@@ -24,19 +24,19 @@ public class ArticleDTO {
         this.title = title;
     }
 
-    public @NotBlank(message = "Vyplnte popisek") String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(@NotBlank(message = "Vyplnte popisek") String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public @NotBlank(message = "Vyplnte obsah") String getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(@NotBlank(message = "Vyplnte obsah") String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 }
