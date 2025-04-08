@@ -14,6 +14,17 @@
 
     <script th:src="@{/scripts/lightbox-plus-jquery.min.js}"></script>
 
+<!--    TinyMCE text editor-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: "textarea[id*=content]",
+            entities: "160,nbsp",
+            entity_encoding: "named",
+            entity_encoding: "raw"
+        });
+    </script>
+
 </head>
 <body>
 
