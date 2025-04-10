@@ -1,6 +1,6 @@
 package eric.pham.springblog.controllers;
 
-import eric.pham.springblog.models.ArticleDTO;
+import eric.pham.springblog.models.dto.ArticleDTO;
 import eric.pham.springblog.models.services.ArticleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

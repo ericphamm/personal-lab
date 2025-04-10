@@ -1,6 +1,6 @@
 package eric.pham.springblog.models.services;
 
-import eric.pham.springblog.models.ArticleDTO;
+import eric.pham.springblog.models.dto.ArticleDTO;
 
 public interface ArticleService {
 

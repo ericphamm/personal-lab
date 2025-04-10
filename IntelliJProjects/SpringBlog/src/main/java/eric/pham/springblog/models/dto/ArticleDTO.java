@@ -1,4 +1,4 @@
-package eric.pham.springblog.models;
+package eric.pham.springblog.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
