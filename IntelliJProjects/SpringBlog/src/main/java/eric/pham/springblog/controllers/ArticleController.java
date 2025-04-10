@@ -1,7 +1,9 @@
 package eric.pham.springblog.controllers;
 
 import eric.pham.springblog.models.ArticleDTO;
+import eric.pham.springblog.models.services.ArticleService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/articles")
 public class ArticleController {
+
+    @Autowired
+    private ArticleService articleService;
 
     @GetMapping
     public String renderIndex() {
@@ -29,7 +34,7 @@ public class ArticleController {
         if (result.hasErrors())
             return renderCreateForm(article);
 
-        System.out.println(article.getTitle() + " - " + article.getDescription());
+        articleService.create(article); // <-- Přidání článku do databáze
 
         return "redirect:/articles";
     }

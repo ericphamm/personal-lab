@@ -4,5 +4,5 @@ import eric.pham.springblog.models.ArticleDTO;
 
 public interface ArticleService {
 
-    void create(ArticleDTO articleDTO);
+    void create(ArticleDTO article);
 }
