@@ -7,6 +7,9 @@ import eric.pham.springblog.models.dto.mappers.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.StreamSupport;
+
 @Service
 public class ArticleServiceImpl  implements  ArticleService{
 
@@ -21,5 +24,12 @@ public class ArticleServiceImpl  implements  ArticleService{
         ArticleEntity newArticle = articleMapper.toEntity(article);
 
         articleRepository.save(newArticle);
+    }
+
+    @Override
+    public List<ArticleDTO> getAll() {
+        return StreamSupport.stream(articleRepository.findAll().spliterator(), false)
+                .map(i -> articleMapper.toDTO(i))
+                .toList();
     }
 }

@@ -4,6 +4,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class ArticleDTO {
+
+    private long articleId;
+
     @NotBlank(message = "Vyplnte titulek")
     @Size(max = 100, message = "Titulek je prilis dlouhy")
     private String title;
@@ -38,5 +41,13 @@ public class ArticleDTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(long articleId) {
+        this.articleId = articleId;
     }
 }
