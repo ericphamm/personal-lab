@@ -32,4 +32,12 @@ public class ArticleServiceImpl  implements  ArticleService{
                 .map(i -> articleMapper.toDTO(i))
                 .toList();
     }
+
+    @Override
+    public ArticleDTO getById(long articleId) {
+        ArticleEntity fetchedArticle = articleRepository
+                .findById(articleId)
+                .orElseThrow();
+        return articleMapper.toDTO(fetchedArticle);
+    }
 }

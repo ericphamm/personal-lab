@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,14 @@ public class ArticleController {
         List<ArticleDTO> articles = articleService.getAll();
         model.addAttribute("articles", articles);
         return "pages/articles/index";
+    }
+
+    @GetMapping("{articleId}")
+    public String renderDetail(@PathVariable("articleId") long articleId, Model model) {
+
+        ArticleDTO article = articleService.getById(articleId);
+        model.addAttribute("article", article);
+        return "pages/articles/detail";
     }
 
     @GetMapping("create")
