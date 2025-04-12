@@ -50,4 +50,10 @@ public class ArticleServiceImpl  implements  ArticleService{
         articleMapper.updateArticleEntity(article, fetchedArtice);
         articleRepository.save(fetchedArtice);
     }
+
+    private ArticleEntity getArticleOrThrow(long articleId) {
+        return articleRepository
+                .findById(articleId)
+                .orElseThrow();
+    }
 }
