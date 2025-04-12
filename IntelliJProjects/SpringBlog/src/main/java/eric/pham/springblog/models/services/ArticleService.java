@@ -11,4 +11,6 @@ public interface ArticleService {
     List<ArticleDTO> getAll();
 
     ArticleDTO getById(long articleId);
+
+    void edit(ArticleDTO article);
 }

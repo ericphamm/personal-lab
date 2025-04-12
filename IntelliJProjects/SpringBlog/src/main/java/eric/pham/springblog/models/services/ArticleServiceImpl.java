@@ -40,4 +40,14 @@ public class ArticleServiceImpl  implements  ArticleService{
                 .orElseThrow();
         return articleMapper.toDTO(fetchedArticle);
     }
+
+    @Override
+    public void edit(ArticleDTO article) {
+        ArticleEntity fetchedArtice = articleRepository
+                .findById(article.getArticleId())
+                .orElseThrow();
+
+        articleMapper.updateArticleEntity(article, fetchedArtice);
+        articleRepository.save(fetchedArtice);
+    }
 }
