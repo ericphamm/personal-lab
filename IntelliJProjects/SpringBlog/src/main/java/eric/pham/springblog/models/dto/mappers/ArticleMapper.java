@@ -15,4 +15,5 @@ public interface ArticleMapper {
     void updateArticleDTO(ArticleDTO source, @MappingTarget ArticleDTO target);
 
     void updateArticleEntity(ArticleDTO source, @MappingTarget ArticleEntity target);
+
 }
