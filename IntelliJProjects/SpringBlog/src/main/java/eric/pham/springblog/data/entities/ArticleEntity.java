@@ -17,6 +17,7 @@ public class ArticleEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
+    //region: Getters and setters
     public long getArticleId() {
         return articleId;
     }
@@ -45,7 +46,8 @@ public class ArticleEntity {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContent(String body) {
+        this.content = body;
     }
+    //endregion
 }

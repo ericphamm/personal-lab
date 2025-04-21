@@ -11,49 +11,21 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 @Service
-public class ArticleServiceImpl  implements  ArticleService{
+public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private ArticleRepository articleRepository;
 
-    @Autowired
-    private ArticleMapper articleMapper;
-
     @Override
     public void create(ArticleDTO article) {
-        ArticleEntity newArticle = articleMapper.toEntity(article);
+        ArticleEntity newArticle = new ArticleEntity();
+
+        // Tuto část později nahradíme tzv. mapperem
+        newArticle.setTitle(article.getTitle());
+        newArticle.setContent(article.getContent());
+        newArticle.setDescription(article.getDescription());
 
         articleRepository.save(newArticle);
     }
 
-    @Override
-    public List<ArticleDTO> getAll() {
-        return StreamSupport.stream(articleRepository.findAll().spliterator(), false)
-                .map(i -> articleMapper.toDTO(i))
-                .toList();
-    }
-
-    @Override
-    public ArticleDTO getById(long articleId) {
-        ArticleEntity fetchedArticle = articleRepository
-                .findById(articleId)
-                .orElseThrow();
-        return articleMapper.toDTO(fetchedArticle);
-    }
-
-    @Override
-    public void edit(ArticleDTO article) {
-        ArticleEntity fetchedArtice = articleRepository
-                .findById(article.getArticleId())
-                .orElseThrow();
-
-        articleMapper.updateArticleEntity(article, fetchedArtice);
-        articleRepository.save(fetchedArtice);
-    }
-
-    private ArticleEntity getArticleOrThrow(long articleId) {
-        return articleRepository
-                .findById(articleId)
-                .orElseThrow();
-    }
 }

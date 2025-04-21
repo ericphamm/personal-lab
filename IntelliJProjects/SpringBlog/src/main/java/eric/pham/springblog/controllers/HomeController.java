@@ -26,3 +26,4 @@ public class HomeController {
         return "pages/home/skills";
     }
 }
+

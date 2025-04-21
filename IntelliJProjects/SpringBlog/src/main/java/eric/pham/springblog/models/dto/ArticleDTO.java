@@ -5,20 +5,19 @@ import jakarta.validation.constraints.Size;
 
 public class ArticleDTO {
 
-    private long articleId;
+    /* Zde později přidáme ještě jeden atribut */
 
-    @NotBlank(message = "Vyplnte titulek")
-    @Size(max = 100, message = "Titulek je prilis dlouhy")
+    @NotBlank(message = "Vyplňte titulek")
+    @Size(max = 100, message = "Titulek je příliš dlouhý")
     private String title;
 
-    @NotBlank(message = "Vyplnte popisek")
+    @NotBlank(message = "Vyplňte popisek")
     private String description;
 
-    @NotBlank(message = "Vyplnte obsah")
+    @NotBlank(message = "Vyplňte obsah")
     private String content;
 
-    //getter and setter
-
+    //region: Getters and setters
     public String getTitle() {
         return title;
     }
@@ -42,12 +41,5 @@ public class ArticleDTO {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public long getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(long articleId) {
-        this.articleId = articleId;
-    }
+    //endregion
 }

@@ -19,18 +19,10 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping
-    public String renderIndex(Model model) {
-        List<ArticleDTO> articles = articleService.getAll();
-        model.addAttribute("articles", articles);
+    public String renderIndex() {
+        // Později zde budeme řešit předávání článků šabloně
+
         return "pages/articles/index";
-    }
-
-    @GetMapping("{articleId}")
-    public String renderDetail(@PathVariable("articleId") long articleId, Model model) {
-
-        ArticleDTO article = articleService.getById(articleId);
-        model.addAttribute("article", article);
-        return "pages/articles/detail";
     }
 
     @GetMapping("create")
@@ -39,13 +31,16 @@ public class ArticleController {
     }
 
     @PostMapping("create")
-    public String createArticle(@Valid @ModelAttribute ArticleDTO article,
-                                BindingResult result) {
+    public String createArticle(
+            @Valid @ModelAttribute ArticleDTO article,
+            BindingResult result
+    ) {
         if (result.hasErrors())
             return renderCreateForm(article);
 
-        articleService.create(article); // <-- Přidání článku do databáze
+        articleService.create(article);
 
         return "redirect:/articles";
     }
+
 }
