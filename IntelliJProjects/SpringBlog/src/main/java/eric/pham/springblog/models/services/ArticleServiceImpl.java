@@ -23,10 +23,8 @@ public class ArticleServiceImpl implements ArticleService {
     public void create(ArticleDTO article) {
         ArticleEntity newArticle = new ArticleEntity();
 
-        // Tuto část později nahradíme tzv. mapperem
-        newArticle.setTitle(article.getTitle());
-        newArticle.setContent(article.getContent());
-        newArticle.setDescription(article.getDescription());
+        ArticleEntity newArticle = articleMapper.toEntity(article); // <-- Tímto řádkem jsme nahradili velkou část obsahu této metody
+
 
         articleRepository.save(newArticle);
     }
