@@ -17,6 +17,8 @@ public class ArticleDTO {
     @NotBlank(message = "Vyplňte obsah")
     private String content;
 
+    private long ArticleId;
+
     //region: Getters and setters
     public String getTitle() {
         return title;
@@ -41,5 +43,14 @@ public class ArticleDTO {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public long getArticleId() {
+        return ArticleId;
+    }
+
+    public void setArticleId(long articleId) {
+        ArticleId = articleId;
+    }
+
     //endregion
 }
