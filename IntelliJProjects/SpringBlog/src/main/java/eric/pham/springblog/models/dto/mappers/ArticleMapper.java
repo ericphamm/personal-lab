@@ -4,8 +4,10 @@ import eric.pham.springblog.data.entities.ArticleEntity;
 import eric.pham.springblog.models.dto.ArticleDTO;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ArticleMapper {
 
     ArticleEntity toEntity(ArticleDTO source);
+
+    ArticleDTO toDTO(ArticleEntity source);
 }

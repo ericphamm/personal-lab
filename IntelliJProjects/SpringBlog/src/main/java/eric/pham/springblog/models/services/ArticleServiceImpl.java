@@ -7,24 +7,18 @@ import eric.pham.springblog.models.dto.mappers.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.StreamSupport;
-
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
-    private ArticleMapper articleMapper;
+    private ArticleRepository articleRepository;
 
     @Autowired
-    private ArticleRepository articleRepository;
+    private ArticleMapper articleMapper;
 
     @Override
     public void create(ArticleDTO article) {
-        ArticleEntity newArticle = new ArticleEntity();
-
-        ArticleEntity newArticle = articleMapper.toEntity(article); // <-- Tímto řádkem jsme nahradili velkou část obsahu této metody
-
+        ArticleEntity newArticle = articleMapper.toEntity(article);
 
         articleRepository.save(newArticle);
     }
