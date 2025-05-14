@@ -6,6 +6,8 @@ import eric.pham.springblog.models.dto.ArticleDTO;
 import eric.pham.springblog.models.dto.mappers.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import  eric.pham.springblog.models.exceptions.ArticleNotFoundException;
+
 
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -48,15 +50,15 @@ public class ArticleServiceImpl implements ArticleService {
         articleRepository.save(fetchedArticle);
     }
 
-    private ArticleEntity getArticleOrThrow(long articleId) {
-        return articleRepository
-                .findById(articleId)
-                .orElseThrow();
-    }
-
     @Override
     public void remove(long articleId) {
         ArticleEntity fetchedEntity = getArticleOrThrow(articleId);
         articleRepository.delete(fetchedEntity);
+    }
+
+    private ArticleEntity getArticleOrThrow(long articleId) {
+        return articleRepository
+                .findById(articleId)
+                .orElseThrow(ArticleNotFoundException::new);
     }
 }
