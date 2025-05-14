@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<ArticleDTO> getAll() {
-        return StreamSupport.stream(articleRepository.findAll().spliterator(), false)
+        return StreamSupport.stream(articleRepository.findAllByOrderByArticleIdDesc().spliterator(), false)
                 .map(i -> articleMapper.toDTO(i))
                 .toList();
     }
